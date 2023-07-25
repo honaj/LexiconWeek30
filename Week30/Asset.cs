@@ -3,6 +3,8 @@ public class Asset
     DateOnly purchaseDate;
     string name;
     double price;
+    public bool IsDeprecated => purchaseDate.AddYears(3) > DateOnly.FromDateTime(DateTime.Now);
+    public bool IsCloseToDeprecated => purchaseDate.AddYears(2).AddMonths(9) > DateOnly.FromDateTime(DateTime.Now);
 
     public DateOnly PurchaseDate
     {
