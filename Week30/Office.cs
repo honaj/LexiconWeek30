@@ -8,11 +8,11 @@ public enum Currency
 public class Office
 {
     public string Location { get; set; }
-    private readonly List<Asset> assets = new();
-    private readonly List<Asset> deprecatedAssets = new();
-
+    readonly List<Asset> assets = new();
+    readonly List<Asset> deprecatedAssets = new();
     public IReadOnlyList<Asset> Assets => assets.AsReadOnly();
     public IReadOnlyList<Asset> DeprecatedAssets => deprecatedAssets.AsReadOnly();
+    public IOrderedEnumerable<Asset> OrderedAssets => assets.OrderByDescending(asset => asset.PurchaseDate).ThenByDescending(asset => asset is Computer);
 
     public Office(string location)
     {

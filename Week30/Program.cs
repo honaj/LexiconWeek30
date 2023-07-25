@@ -2,4 +2,9 @@
 
 Console.WriteLine("Hello, World!");
 
-List<Office> offices = new() {new Office("Malmö"), new Office("Madrid"), new Office("Chicago")};
+var offices = new Office[]
+{
+    new("Malmö"), 
+    new("Madrid"), 
+    new("Chicago")
+};
