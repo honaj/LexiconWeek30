@@ -1,33 +1,50 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-Console.WriteLine("Hello, World!");
-
-var offices = new Office[]
+﻿var offices = new Office[]
 {
     new("Malmö"), 
     new("Madrid"), 
-    new("Chicago")
+    new("Miami")
 };
+
+Console.WriteLine("Welcome to your asset manager! Press P to view all assets in all offices, press A to add an asset to an office, or Q to quit.");
+
+while (true)
+{
+    switch (Console.ReadKey(true).Key)
+    {
+        case ConsoleKey.A:
+            AddAsset();
+            break;
+        case ConsoleKey.P:
+            PrintAllAssets();
+            break;
+        case ConsoleKey.Q:
+            Environment.Exit(0);
+            break;
+        default:
+            Console.WriteLine("Invalid key input");
+            break;
+    }
+}
+
 return;
 
 void PrintAllAssets()
 {
-    var allAssets = new List<Asset>();
-    if (offices == null) return;
     foreach (var office in offices)
     {
-        allAssets.Concat(office.OrderedAssets);
+        Console.WriteLine(office.Location.ToUpper());
+        
+        foreach (var asset in office.OrderedAssets)
+        {
+            //Set text color based on asset status
+            Console.ForegroundColor = asset.IsDeprecated ? ConsoleColor.Red :
+                asset.IsCloseToDeprecated ? ConsoleColor.Yellow :
+                ConsoleColor.White;
+        }
     }
+}
 
-    foreach (var asset in allAssets)
-    {
-        if (asset.IsDeprecated)
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-        }
-        else if (asset.IsCloseToDeprecated)
-        {
-            Console.ForegroundColor = ConsoleColor.Yellow;
-        }
-    }
+void AddAsset()
+{
+    
 }

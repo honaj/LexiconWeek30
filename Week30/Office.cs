@@ -7,12 +7,12 @@ public enum Currency
 
 public class Office
 {
-    public string Location { get; set; }
+    public string Location { get; }
     readonly List<Asset> assets = new();
-    readonly List<Asset> deprecatedAssets = new();
     public IReadOnlyList<Asset> Assets => assets.AsReadOnly();
-    public IReadOnlyList<Asset> DeprecatedAssets => deprecatedAssets.AsReadOnly();
-    public IOrderedEnumerable<Asset> OrderedAssets => assets.OrderByDescending(asset => asset.PurchaseDate).ThenByDescending(asset => asset is Computer);
+    public IEnumerable<Asset> OrderedAssets => 
+        assets.OrderByDescending(asset => asset is Computer).
+            ThenByDescending(asset => asset.PurchaseDate);
 
     public Office(string location)
     {
@@ -22,11 +22,5 @@ public class Office
     public void AddAsset(Asset asset)
     {
         assets.Add(asset);
-    }
-
-    public void DeprecateAsset(Asset asset)
-    {
-        assets.Remove(asset);
-        deprecatedAssets.Add(asset);
     }
 }
