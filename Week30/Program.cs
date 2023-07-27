@@ -1,32 +1,62 @@
-﻿var offices = new Office[]
+﻿var offices = new List<Office>
 {
     new("Malmö"), 
     new("Madrid"), 
     new("Miami")
 };
 
-Console.WriteLine("Welcome to your asset manager! Press P to view all assets in all offices, press A to add an asset to an office, or Q to quit.");
+MainMenu();
+return;
 
-while (true)
+void MainMenu()
 {
-    switch (Console.ReadKey(true).Key)
+    while (true)
     {
-        case ConsoleKey.A:
-            AddAsset();
-            break;
-        case ConsoleKey.P:
-            PrintAllAssets();
-            break;
-        case ConsoleKey.Q:
-            Environment.Exit(0);
-            break;
-        default:
-            Console.WriteLine("Invalid key input");
-            break;
+        Console.Clear();
+        Console.WriteLine("Welcome to your asset manager!");
+        Console.WriteLine("(1) Add new asset");
+        Console.WriteLine("(2) View all assets");
+        Console.WriteLine("(3) Quit");
+    
+        switch (Console.ReadKey(true).Key)
+        {
+            case ConsoleKey.D1:
+                SelectOffice();
+                break;
+            case ConsoleKey.D2:
+                PrintAllAssets();
+                break;
+            case ConsoleKey.D3:
+                Environment.Exit(0);
+                break;
+            default:
+                Console.WriteLine("Invalid key input");
+                break;
+        }
     }
 }
 
-return;
+void SelectOffice()
+{
+    if (offices == null)
+    {
+        throw new Exception("No offices exist");
+    }
+    foreach (var office in offices)
+    {
+        Console.WriteLine($"({offices.IndexOf(office) + 1}) {office.Location}");
+    }
+}
+
+void AddAsset(Office selectedOffice)
+{
+    Console.Clear();
+    Console.WriteLine("Select asset type:");
+    Console.WriteLine("(1) Laptop");
+    Console.WriteLine("(2) Phone");
+    
+    Asset newAsset;
+}
 
 void PrintAllAssets()
 {
@@ -40,11 +70,8 @@ void PrintAllAssets()
             Console.ForegroundColor = asset.IsDeprecated ? ConsoleColor.Red :
                 asset.IsCloseToDeprecated ? ConsoleColor.Yellow :
                 ConsoleColor.White;
+            
+            Console.WriteLine($"{asset.GetType().Name,-10} {asset.Name,-20} {asset.Price,10:N2} {asset.PurchaseDate:yyyy-MM-dd}");
         }
     }
-}
-
-void AddAsset()
-{
-    
 }
