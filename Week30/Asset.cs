@@ -5,10 +5,10 @@ public abstract class Asset
     double price;
 
     // Checks if the asset is older than 3 years
-    public bool IsDeprecated => purchaseDate.AddYears(3) > DateOnly.FromDateTime(DateTime.Now);
+    public bool IsDeprecated => purchaseDate < DateOnly.FromDateTime(DateTime.Now).AddYears(-2).AddMonths(-9);
     
     // Checks if the asset is about to be deprecated (older than 2 years and 9 months)
-    public bool IsCloseToDeprecated => purchaseDate.AddYears(2).AddMonths(9) > DateOnly.FromDateTime(DateTime.Now);
+    public bool IsCloseToDeprecated => purchaseDate < DateOnly.FromDateTime(DateTime.Now).AddYears(-2).AddMonths(-6);
 
     public DateOnly PurchaseDate
     {

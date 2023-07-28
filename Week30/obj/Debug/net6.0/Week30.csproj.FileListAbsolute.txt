@@ -13,3 +13,5 @@ C:\Users\honaj\OneDrive\Dokument\Personligt\Lexicon\Net\Week30\Week30\obj\Debug\
 C:\Users\honaj\OneDrive\Dokument\Personligt\Lexicon\Net\Week30\Week30\obj\Debug\net6.0\Week30.pdb
 C:\Users\honaj\OneDrive\Dokument\Personligt\Lexicon\Net\Week30\Week30\obj\Debug\net6.0\Week30.genruntimeconfig.cache
 C:\Users\honaj\OneDrive\Dokument\Personligt\Lexicon\Net\Week30\Week30\obj\Debug\net6.0\ref\Week30.dll
+C:\Users\honaj\OneDrive\Dokument\Personligt\Lexicon\Net\Week30\Week30\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\honaj\OneDrive\Dokument\Personligt\Lexicon\Net\Week30\Week30\obj\Debug\net6.0\Week30.csproj.CopyComplete
