@@ -1,8 +1,16 @@
+public enum CurrencyType
+{
+    USD,
+    EUR,
+    SEK
+}
+
 public abstract class Asset
 {
     DateOnly purchaseDate;
     string name;
     double price;
+    private CurrencyType currency;
 
     // Checks if the asset is older than 3 years
     public bool IsDeprecated => purchaseDate < DateOnly.FromDateTime(DateTime.Now).AddYears(-2).AddMonths(-9);
@@ -46,10 +54,11 @@ public abstract class Asset
         }
     }
 
-    public Asset(DateOnly purchaseDate, string name, double price)
+    public Asset(DateOnly purchaseDate, string name, double price, CurrencyType currency)
     {
         PurchaseDate = purchaseDate;
         Name = name;
         Price = price;
+        this.currency = currency;
     }
 }

@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "FvXawjP64jGpGPxmPrIV2iyBrTV1NwqO0ZXzgLtlBPWC5wLH4tWV2g3MGasAP8lRojbvB88EW5WwuQ1B127RVg==",
+  "dgSpecHash": "qmJd9XXxwCrloM9I6Z8e9oElN7FiUVRJ0gZKComPUNMUyTAYls1j82UaIaKDw2nvAGEjC+HiU3OVsinHN62glw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\honaj\\OneDrive\\Dokument\\Personligt\\Lexicon\\Net\\Week30\\Week30\\Week30.csproj",
+  "projectFilePath": "/home/johan/RiderProjects/LexiconWeek30/Week30/Week30.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\honaj\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+    "/home/johan/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512"
   ],
   "logs": []
 }

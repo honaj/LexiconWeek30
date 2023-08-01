@@ -3,24 +3,24 @@ var offices = new List<Office>
 {
     new("Malmö") {Assets =
     {
-        new Phone(new DateOnly(2022, 8, 15), "Google Pixel", 11000),
-        new Computer(new DateOnly(2020, 5, 3), "Apple Macbook", 25000),
-        new Phone(new DateOnly(2020, 12, 15), "Apple iPhone", 10000)
+        new Phone(new DateOnly(2022, 8, 15), "Google Pixel", 11000, CurrencyType.SEK),
+        new Computer(new DateOnly(2020, 5, 3), "Apple Macbook", 25000, CurrencyType.SEK),
+        new Phone(new DateOnly(2020, 12, 15), "Apple iPhone", 10000, CurrencyType.SEK)
     }}, 
     new("Madrid") {Assets =
     {
-        new Computer(new DateOnly(2023, 7, 14), "Dell XPS", 22000),
-        new Phone(new DateOnly(2019, 8, 15), "Apple iPhone", 11000)
+        new Computer(new DateOnly(2023, 7, 14), "Dell XPS", 2200, CurrencyType.EUR),
+        new Phone(new DateOnly(2019, 8, 15), "Apple iPhone", 1100, CurrencyType.EUR)
     }}, 
     new("Miami") {Assets =
     {
-        new Computer(new DateOnly(2018, 11, 18), "HP Envy", 18000),
-        new Phone(new DateOnly(2021, 1, 17), "Samsung Galaxy", 8000),
-        new Computer(new DateOnly(2020, 9, 4), "Google Chromebook", 7000)
+        new Computer(new DateOnly(2018, 11, 18), "HP Envy", 1800, CurrencyType.USD),
+        new Phone(new DateOnly(2021, 1, 17), "Samsung Galaxy", 800, CurrencyType.USD),
+        new Computer(new DateOnly(2020, 9, 4), "Google Chromebook", 700, CurrencyType.USD)
     }}
 };
 
-MainMenu();
+PrintAllAssets();
 return;
 
 // Let user select between adding new asset, showing all assets or quitting
@@ -37,7 +37,7 @@ void MainMenu()
         switch (Console.ReadKey(true).Key)
         {
             case ConsoleKey.D1:
-                SelectOffice();
+                AddAsset();
                 break;
             case ConsoleKey.D2:
                 PrintAllAssets();
@@ -52,33 +52,43 @@ void MainMenu()
     }
 }
 
-void SelectOffice()
+//Let the user select an office to add the new asset to
+string? SelectOffice()
 {
-    if (offices == null)
+    Console.Clear();
+    Console.WriteLine("Please select an office:");
+
+    //Check that the entered office actually exists
+    string? officeInput;
+    do
     {
-        throw new Exception("No offices exist");
-    }
-    foreach (var office in offices)
-    {
-        Console.WriteLine($"({offices.IndexOf(office) + 1}) {office.Location}");
-    }
+        Console.WriteLine("Please enter a valid office location");
+        officeInput = Console.ReadLine();
+    } while (!offices.Any(office => string.Equals(office.Location, officeInput, StringComparison.OrdinalIgnoreCase)));
+
+    return officeInput;
 }
 
-// void AddAsset(Office selectedOffice)
-// {
-//     Console.Clear();
-//     Console.WriteLine("Select asset type:");
-//     Console.WriteLine("(1) Laptop");
-//     Console.WriteLine("(2) Phone");
-//     
-//     Asset newAsset;
-// }
+Type AssetType()
+{
+    
+}
+
+//Create a new asset
+void AddAsset()
+{
+    var office = SelectOffice();
+}
 
 void PrintAllAssets()
 {
-    Console.WriteLine("Esc to go back");
+    Console.Clear();
+    var converter = new CurrencyConverter();
+    
     // Print categories in columns
+    Console.ForegroundColor = ConsoleColor.White;
     Console.WriteLine($"{"LOCATION",-20} {"TYPE",-20} {"NAME",-20} {"PRICE",-20} {"PURCHASE DATE",-20}");
+    
     //Loop through all offices in alphabetic order
     foreach (var office in offices.OrderBy(office => office.Location))
     {
@@ -94,8 +104,20 @@ void PrintAllAssets()
         }
     }
 
-    if (Console.ReadKey(true).Key == ConsoleKey.Escape)
+    Console.ForegroundColor = ConsoleColor.Green;
+    Console.WriteLine("(1) Add new asset");
+    Console.WriteLine("(2) Quit");
+    
+    switch (Console.ReadKey(true).Key)
     {
-        MainMenu();
+        case ConsoleKey.D1:
+            SelectOffice();
+            break;
+        case ConsoleKey.D2:
+            Environment.Exit(0);
+            break;
+        default:
+            Console.WriteLine("Invalid key input");
+            break;
     }
 }
