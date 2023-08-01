@@ -1,6 +1,8 @@
-﻿public class Computer : Asset
+﻿namespace Week30;
+
+public class Computer : Asset
 {
-    public Computer(DateOnly purchaseDate, string name, double price, CurrencyType currency) : base(purchaseDate, name, price, currency)
+    public Computer(DateOnly purchaseDate, string name, double price) : base(purchaseDate, name, price)
     {
     }
 }

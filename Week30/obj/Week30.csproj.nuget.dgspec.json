@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/home/johan/RiderProjects/LexiconWeek30/Week30/Week30.csproj": {}
+    "C:\\Users\\honaj\\OneDrive\\Dokument\\Personligt\\Lexicon\\Net\\Week30\\Week30\\Week30.csproj": {}
   },
   "projects": {
-    "/home/johan/RiderProjects/LexiconWeek30/Week30/Week30.csproj": {
+    "C:\\Users\\honaj\\OneDrive\\Dokument\\Personligt\\Lexicon\\Net\\Week30\\Week30\\Week30.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/johan/RiderProjects/LexiconWeek30/Week30/Week30.csproj",
+        "projectUniqueName": "C:\\Users\\honaj\\OneDrive\\Dokument\\Personligt\\Lexicon\\Net\\Week30\\Week30\\Week30.csproj",
         "projectName": "Week30",
-        "projectPath": "/home/johan/RiderProjects/LexiconWeek30/Week30/Week30.csproj",
-        "packagesPath": "/home/johan/.nuget/packages/",
-        "outputPath": "/home/johan/RiderProjects/LexiconWeek30/Week30/obj/",
+        "projectPath": "C:\\Users\\honaj\\OneDrive\\Dokument\\Personligt\\Lexicon\\Net\\Week30\\Week30\\Week30.csproj",
+        "packagesPath": "C:\\Users\\honaj\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\honaj\\OneDrive\\Dokument\\Personligt\\Lexicon\\Net\\Week30\\Week30\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Users\\honaj\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/home/johan/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\honaj\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\honaj\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -58,7 +64,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/6.0.120/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.315\\RuntimeIdentifierGraph.json"
         }
       }
     }

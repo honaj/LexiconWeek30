@@ -1,16 +1,11 @@
-// Represents available currencies.
-public enum Currency
-{
-    USD, // US Dollar
-    EUR, // Euro
-    SEK  // Swedish Krona
-}
+namespace Week30;
 
-// Represents an office with assets
+// Class for offices
 public class Office
 {
-    // Office location
+    // Office location and currency type
     public string Location { get; }
+    public Currency Currency { get; }
 
     // Holds office assets.
     public readonly List<Asset> Assets = new();
@@ -19,10 +14,10 @@ public class Office
     public IEnumerable<Asset> OrderedAssets => 
         Assets.OrderByDescending(asset => asset is Computer).
             ThenByDescending(asset => asset.PurchaseDate);
-
-    // Constructor with office's location
-    public Office(string location)
+    
+    public Office(string location, Currency currency)
     {
         Location = location;
+        Currency = currency;
     }
 }
